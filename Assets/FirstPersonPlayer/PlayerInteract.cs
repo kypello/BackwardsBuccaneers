@@ -27,7 +27,7 @@ public class PlayerInteract : MonoBehaviour
                 crosshairText.text = hit.collider.GetComponent<Interactable>().prompt;
             }
 
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetKeyDown(KeyCode.E)) {
                 StartCoroutine(hit.collider.GetComponent<Interactable>().Interact());
             }
         }

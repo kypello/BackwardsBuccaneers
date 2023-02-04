@@ -13,10 +13,20 @@ public class ShipControl : MonoBehaviour
     public float angularVelocity;
     public float angularAcceleration;
 
-    public Transform shipModel;
+    public Transform shipTilt;
+    public Transform wheel;
     public CharacterController player;
 
+    float wheelNoiseX;
+    float wheelNoiseY;
+    float wheelNoiseTime = 0f;
+
     public EnterShipMode shipMode;
+
+    void Start() {
+        wheelNoiseX = Random.Range(-100000f, 100000f);
+        wheelNoiseY = Random.Range(-100000f, 100000f);
+    }
 
     void Update() {
         if (control && Input.GetAxis("Vertical") > 0f) {
@@ -53,7 +63,12 @@ public class ShipControl : MonoBehaviour
             StartCoroutine(shipMode.ShipToPlayerMode());
         }
 
-        shipModel.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+        shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+        wheel.Rotate(Vector3.forward * angularVelocity * 5f * Time.deltaTime);
+        
+        wheelNoiseTime += Time.deltaTime;
+        float noiseValue = Mathf.PerlinNoise((wheelNoiseX + wheelNoiseTime) / 10f, wheelNoiseY / 10f);
+        wheel.Rotate(Vector3.forward * (noiseValue * 30f - 15f) * Time.deltaTime);
 
         transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);

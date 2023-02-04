@@ -89,15 +89,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -118,6 +118,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
       propertyPath: m_Name
       value: Cannonball
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}

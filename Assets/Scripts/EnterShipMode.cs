@@ -17,7 +17,7 @@ public class EnterShipMode : MonoBehaviour, Interactable
 
     public string prompt {
         get {
-            return "Use Wheel";
+            return "[E] Use Wheel";
         }
     }
 

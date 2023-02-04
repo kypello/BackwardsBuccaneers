@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Cannon : MonoBehaviour, Interactable
 {
@@ -20,15 +22,22 @@ public class Cannon : MonoBehaviour, Interactable
 
     public ProjectileState loadedProjectile = ProjectileState.None;
 
+    public Image projectileIcon;
+    public Sprite[] projectileIconSprites;
+    public TMP_Text clickInstructionText;
+    public Color grayedOutTextColor;
+    public Material[] floatingIconMaterials;
+    public Renderer floatingIcon;
+
     bool cannonActive = false;
 
     public string prompt {
         get {
             if (loadedProjectile == ProjectileState.None && playerCarry.carrying != ProjectileState.None) {
-                return "Load Cannon";
+                return "[E] Load Cannon";
             }
             else {
-                return "Use Cannon";
+                return "[E] Use Cannon";
             }
         }
     }
@@ -39,6 +48,11 @@ public class Cannon : MonoBehaviour, Interactable
                 if (loadedProjectile != ProjectileState.None) {
                     Fire(projectilePrefabs[(int)loadedProjectile]);
                     loadedProjectile = ProjectileState.None;
+
+                    projectileIcon.sprite = projectileIconSprites[2];
+                    projectileIcon.color = grayedOutTextColor;
+                    clickInstructionText.color = grayedOutTextColor;
+                    floatingIcon.enabled = false;
                 }
             }
 
@@ -57,6 +71,9 @@ public class Cannon : MonoBehaviour, Interactable
         if (loadedProjectile == ProjectileState.None && playerCarry.carrying != ProjectileState.None) {
             loadedProjectile = playerCarry.carrying;
             playerCarry.PickUp(ProjectileState.None);
+
+            floatingIcon.enabled = true;
+            floatingIcon.sharedMaterial = floatingIconMaterials[(int)loadedProjectile];
         }
         else {
             yield return PlayerToCannonMode();
@@ -93,7 +110,18 @@ public class Cannon : MonoBehaviour, Interactable
         playerLook.clampY = true;
         playerLook.xClamp = 45f;
         playerLook.control = true;
+
+        projectileIcon.sprite = projectileIconSprites[(int)loadedProjectile];
+        if (loadedProjectile == ProjectileState.None) {
+            projectileIcon.color = grayedOutTextColor;
+            clickInstructionText.color = grayedOutTextColor;
+        }
+        else {
+            projectileIcon.color = Color.white;
+            clickInstructionText.color = Color.white;
+        }
         cannonUI.SetActive(true);
+
         cannonActive = true;
     }
 

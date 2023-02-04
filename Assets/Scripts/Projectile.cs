@@ -16,5 +16,9 @@ public class Projectile : MonoBehaviour
         velocity += -velocity.normalized * airResistance * Time.deltaTime;
         velocity += Vector3.up * gravity * Time.deltaTime;
         transform.Translate(velocity * Time.deltaTime, Space.World);
+
+        if (transform.position.y < 0) {
+            Destroy(gameObject);
+        }
     }
 }

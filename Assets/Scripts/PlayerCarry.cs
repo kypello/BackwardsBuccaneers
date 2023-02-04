@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ProjectileState {
-    None = -1,
     Cannonball = 0,
-    Gold = 1
+    Gold = 1,
+    None = 2
 }
     
 public class PlayerCarry : MonoBehaviour
