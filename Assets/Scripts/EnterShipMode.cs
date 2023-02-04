@@ -15,6 +15,12 @@ public class EnterShipMode : MonoBehaviour, Interactable
     public ShipCam shipCam;
     public ShipControl shipControl;
 
+    public string prompt {
+        get {
+            return "Use Wheel";
+        }
+    }
+
     void Start() {
         
     }

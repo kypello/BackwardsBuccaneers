@@ -13,15 +13,33 @@ public class Cannon : MonoBehaviour, Interactable
     public Transform cannonCamPoint;
     public Transform cannonHorizAxis;
     public Transform cannonVertAxis;
+    public GameObject cannonUI;
+
+    public Projectile cannonballPrefab;
 
     bool cannonActive = false;
 
+    public string prompt {
+        get {
+            return "Use Cannon";
+        }
+    }
+
     void Update() {
         if (cannonActive) {
+            if (Input.GetMouseButtonDown(0)) {
+                Fire(cannonballPrefab);
+            }
+
             if (Input.GetKeyDown(KeyCode.E)) {
                 StartCoroutine(CannonToPlayerMode());
             }
         }
+    }
+
+    void Fire(Projectile projectilePrefab) {
+        Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, cannonCamPoint.rotation);
+        projectile.velocity = projectile.transform.forward * 60f;
     }
 
     public IEnumerator Interact() {
@@ -54,7 +72,10 @@ public class Cannon : MonoBehaviour, Interactable
         playerLook.ResetXRotation();
         playerLook.horizontalAxis = cannonHorizAxis;
         playerLook.verticalAxis = cannonVertAxis;
+        playerLook.clampY = true;
+        playerLook.xClamp = 45f;
         playerLook.control = true;
+        cannonUI.SetActive(true);
         cannonActive = true;
     }
 
@@ -62,6 +83,7 @@ public class Cannon : MonoBehaviour, Interactable
         cannonActive = false;
         playerLook.control = false;
         playerCamPoint.localRotation = Quaternion.identity;
+        cannonUI.SetActive(false);
 
         cam.SetParent(null, true);
 
@@ -80,6 +102,8 @@ public class Cannon : MonoBehaviour, Interactable
         playerLook.horizontalAxis = player.transform;
         playerLook.verticalAxis = playerCamPoint;
         playerLook.ResetXRotation();
+        playerLook.clampY = false;
+        playerLook.xClamp = 90f;
         player.control = true;
         playerLook.control = true;
         playerInteract.control = true;

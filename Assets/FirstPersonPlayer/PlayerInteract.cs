@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInteract : MonoBehaviour
 {
     public bool crosshairEnabled = false;
     public RectTransform crosshair;
     public Image crosshairImage;
+    public TMP_Text crosshairText;
     public float interactRange = 4f;
     public bool control = true;
     public LayerMask interactLayer;
@@ -22,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
         if (control && Physics.Raycast(transform.position, transform.forward, out hit, interactRange, interactLayer)) {
             if (crosshairEnabled) {
                 crosshair.sizeDelta = Vector2.one * 12;
+                crosshairText.text = hit.collider.GetComponent<Interactable>().prompt;
             }
 
             if (Input.GetMouseButtonDown(0)) {
@@ -31,6 +34,7 @@ public class PlayerInteract : MonoBehaviour
         else {
             if (crosshairEnabled) {
                 crosshair.sizeDelta = Vector2.one * 4;
+                crosshairText.text = "";
             }
         }
     }

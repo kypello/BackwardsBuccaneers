@@ -15,6 +15,10 @@ public class PlayerLook : MonoBehaviour
     bool lookingAtPoint = false;
     bool mouseMovedSinceUnlocking;
 
+    public bool clampY = false;
+    public float xClamp = 90f;
+    public float yClamp = 60f;
+
     void Update()
     {
         if (control) {
@@ -22,10 +26,13 @@ public class PlayerLook : MonoBehaviour
 
             if (mouseMovedSinceUnlocking) {
                 xRotation -= Input.GetAxis("VerticalCam") * sensitivity * Time.deltaTime;
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
                 verticalAxis.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
                 horizontalAxis.Rotate(Vector3.up * Input.GetAxis("HorizontalCam") * sensitivity * Time.deltaTime);
+                if (clampY) {
+                    horizontalAxis.localRotation = Quaternion.Euler(0f, Mathf.Clamp(Mathf.Repeat(horizontalAxis.localEulerAngles.y + 90f, 180f) - 90f, -yClamp, yClamp), 0f);
+                }
             }
             else {
                 if (Input.GetAxis("HorizontalCam") != 0f || Input.GetAxis("VerticalCam") != 0f) {
