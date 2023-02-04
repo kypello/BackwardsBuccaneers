@@ -7,6 +7,7 @@ public class Cannon : MonoBehaviour, Interactable
     public PlayerLook playerLook;
     public Player player;
     public PlayerInteract playerInteract;
+    public PlayerCarry playerCarry;
     public Animation cameraAnim;
     public Transform cam;
     public Transform playerCamPoint;
@@ -15,20 +16,30 @@ public class Cannon : MonoBehaviour, Interactable
     public Transform cannonVertAxis;
     public GameObject cannonUI;
 
-    public Projectile cannonballPrefab;
+    public Projectile[] projectilePrefabs;
+
+    public ProjectileState loadedProjectile = ProjectileState.None;
 
     bool cannonActive = false;
 
     public string prompt {
         get {
-            return "Use Cannon";
+            if (loadedProjectile == ProjectileState.None && playerCarry.carrying != ProjectileState.None) {
+                return "Load Cannon";
+            }
+            else {
+                return "Use Cannon";
+            }
         }
     }
 
     void Update() {
         if (cannonActive) {
             if (Input.GetMouseButtonDown(0)) {
-                Fire(cannonballPrefab);
+                if (loadedProjectile != ProjectileState.None) {
+                    Fire(projectilePrefabs[(int)loadedProjectile]);
+                    loadedProjectile = ProjectileState.None;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.E)) {
@@ -38,12 +49,19 @@ public class Cannon : MonoBehaviour, Interactable
     }
 
     void Fire(Projectile projectilePrefab) {
-        Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, cannonCamPoint.rotation);
-        projectile.velocity = projectile.transform.forward * 60f;
+        Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, Quaternion.identity);
+        projectile.velocity = cannonCamPoint.forward * 60f;
     }
 
     public IEnumerator Interact() {
-        yield return PlayerToCannonMode();
+        if (loadedProjectile == ProjectileState.None && playerCarry.carrying != ProjectileState.None) {
+            loadedProjectile = playerCarry.carrying;
+            playerCarry.PickUp(ProjectileState.None);
+        }
+        else {
+            yield return PlayerToCannonMode();
+        }
+        yield break;
     }
 
     public IEnumerator PlayerToCannonMode() {
