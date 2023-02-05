@@ -19,6 +19,8 @@ public class Cannon : MonoBehaviour, Interactable
     public GameObject cannonUI;
     public AudioSource cannonSound;
     public Collider shipTarget;
+    public ShipControl shipControl;
+    public bool reverseShipTilt;
 
     public Projectile[] projectilePrefabs;
 
@@ -65,6 +67,7 @@ public class Cannon : MonoBehaviour, Interactable
     }
 
     void Fire(Projectile projectilePrefab) {
+        shipControl.FireCannonTilt(reverseShipTilt);
         cannonSound.Play();
         Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, Quaternion.identity);
         projectile.velocity = cannonCamPoint.forward * 60f;

@@ -33,6 +33,25 @@ public class ShipControl : MonoBehaviour
     public Collider detectorCollider;
     public Collider targetCollider;
 
+    bool cannonFiring;
+    float cannonTiltVelocity = 0f;
+    public float cannonTiltFireVelocity = 60f;
+    public float minCannonTiltVelocity = -15f;
+    public float cannonTiltAcceleration = 120f;
+    float cannonTiltAngle = 0f;
+    float cannonTiltDir = 1;
+
+    public void FireCannonTilt(bool reverse) {
+        cannonTiltVelocity = cannonTiltFireVelocity;
+        cannonFiring = true;
+        if (reverse) {
+            cannonTiltDir = -1f;
+        }
+        else {
+            cannonTiltDir = 1f;
+        }
+    }
+
     void Start() {
         wheelNoiseX = Random.Range(-100000f, 100000f);
         wheelNoiseY = Random.Range(-100000f, 100000f);
@@ -84,7 +103,16 @@ public class ShipControl : MonoBehaviour
         }
 
         if (!animating) {
-            shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+            if (cannonFiring) {
+                cannonTiltVelocity = Mathf.Max(cannonTiltVelocity - cannonTiltAcceleration * Time.deltaTime, minCannonTiltVelocity);
+                cannonTiltAngle = Mathf.Max(cannonTiltAngle + cannonTiltVelocity * Time.deltaTime, 0f);
+
+                if (cannonTiltAngle <= 0f) {
+                    cannonFiring = false;
+                }
+            }
+
+            shipTilt.localRotation = Quaternion.Euler(Vector3.forward * (angularVelocity * -0.2f + cannonTiltAngle * cannonTiltDir));
         }
 
         wheel.Rotate(Vector3.forward * angularVelocity * 5f * Time.deltaTime);

@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &708419361263458829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7129143492848091780, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_Name
+      value: EnemyCannon Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091783, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: cannonUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: cameraAnim
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: playerCarry
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: playerCamPoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: playerInteract
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: projectileIcon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: clickInstructionText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143493494967542, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7129143492848091782, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 50873159264023290, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 7129143493494967547, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 7129143493494967542, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 8443787083787309169, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+    - {fileID: 5965770684855248059, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}

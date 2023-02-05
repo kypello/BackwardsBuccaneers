@@ -370,9 +370,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 1045246592858415281}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCamPoint
       value: 
@@ -471,9 +479,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 1045246592858415281}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCamPoint
       value: 
@@ -485,6 +501,10 @@ PrefabInstance:
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: projectileIcon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: reverseShipTilt
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: clickInstructionText
@@ -572,9 +592,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 1045246592858415281}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCamPoint
       value: 
@@ -586,6 +614,10 @@ PrefabInstance:
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: projectileIcon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: reverseShipTilt
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: clickInstructionText
@@ -673,9 +705,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 1045246592858415281}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
     - target: {fileID: 7129143492848091785, guid: 4258ecf69e78a3cb286ab8b90a539bc9, type: 3}
       propertyPath: playerCamPoint
       value: 
@@ -956,6 +996,9 @@ MonoBehaviour:
   anim: {fileID: 2923749711941381665}
   detectorCollider: {fileID: 688887302568840497}
   targetCollider: {fileID: 1045246592858415281}
+  cannonTiltFireVelocity: 60
+  minCannonTiltVelocity: -15
+  cannonTiltAcceleration: 180
   control: 0
   player: {fileID: 0}
   shipMode: {fileID: 1534640335}
