@@ -10,6 +10,9 @@ public class ShipControl : MonoBehaviour
     public float maxAngularVelocity;
     public float angularVelocity;
     public float angularAcceleration;
+    public float decollideForce;
+
+    List<Collider> collidingShips = new List<Collider>();
 
     public Transform shipTilt;
     public Transform wheel;
@@ -85,5 +88,21 @@ public class ShipControl : MonoBehaviour
 
         transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+
+        foreach (Collider col in collidingShips) {
+            transform.Translate((transform.position - col.transform.position).normalized * decollideForce * Mathf.Pow(Vector3.Distance(transform.position, col.transform.position) / -28f + 2f, 2f) * Time.deltaTime, Space.World);
+        }
+    }
+
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.tag == "Ship") {
+            collidingShips.Add(col);
+        }
+    }
+
+    void OnTriggerExit(Collider col) {
+        if (col.gameObject.tag == "Ship") {
+            collidingShips.Remove(col);
+        }
     }
 }

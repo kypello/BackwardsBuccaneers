@@ -101,11 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77cc306d67d4d5758a8183396b7db68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 5
   speed: 0
   acceleration: 5
   maxAngularVelocity: 45
   angularVelocity: 0
   angularAcceleration: 20
+  decollideForce: 10
   shipTilt: {fileID: 6653931773201740539}
   wheel: {fileID: 1179295499920511798}

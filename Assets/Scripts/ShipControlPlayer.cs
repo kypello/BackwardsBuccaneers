@@ -9,7 +9,7 @@ public class ShipControlPlayer : ShipControl
     public EnterShipMode shipMode;
 
     void Awake() {
-        Physics.IgnoreCollision(player, GetComponent<Collider>());
+        //Physics.IgnoreCollision(player, GetComponent<Collider>());
     }
 
     protected override void TakeInput() {
