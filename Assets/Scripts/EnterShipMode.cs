@@ -14,6 +14,7 @@ public class EnterShipMode : MonoBehaviour, Interactable
     public Transform shipCamParent;
     public ShipCam shipCam;
     public ShipControlPlayer shipControl;
+    public GameObject shipCamText;
 
     public string prompt {
         get {
@@ -47,6 +48,7 @@ public class EnterShipMode : MonoBehaviour, Interactable
             cam.rotation = Quaternion.Lerp(playerCamPoint.rotation, shipCamPoint.rotation, i);
         }
 
+        shipCamText.SetActive(true);
         cam.position = shipCamPoint.position;
         cam.rotation = shipCamPoint.rotation;
         cam.SetParent(shipCamParent, true);
@@ -58,6 +60,7 @@ public class EnterShipMode : MonoBehaviour, Interactable
         shipCam.control = false;
         shipControl.control = false;
         playerCamPoint.localRotation = Quaternion.identity;
+        shipCamText.SetActive(false);
 
         cam.SetParent(null, true);
 

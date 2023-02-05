@@ -25,6 +25,7 @@ public class Projectile : MonoBehaviour
             destroying = true;
             Instantiate(splashParticles, Vector3.right * transform.position.x + Vector3.forward * transform.position.z, Quaternion.identity);
             if (projectileState == ProjectileState.Gold) {
+                GameObject.FindWithTag("Spawner").GetComponent<ShipSpawner>().ChestSpawnedIndependently();
                 Instantiate(floatingChestPrefab, transform.position, Quaternion.identity);
             }
             Destroy(gameObject, 4f);

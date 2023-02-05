@@ -30,6 +30,7 @@ public class ShipControlMerchant : ShipControl
         score = GameObject.FindWithTag("Score").GetComponent<Score>();
         movementTimer = Random.Range(5f, 20f);
         transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
+        spawner = GameObject.FindWithTag("Spawner").GetComponent<ShipSpawner>();
         SetSadFlag();
     }
 

@@ -127,44 +127,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7049489982659941209, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
   m_PrefabInstance: {fileID: 4432477149203027096}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &778787004103732693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6653931773805103041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77cc306d67d4d5758a8183396b7db68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  speed: 0
-  acceleration: 5
-  maxAngularVelocity: 45
-  angularVelocity: 0
-  angularAcceleration: 20
-  decollideForce: 10
-  shipTilt: {fileID: 6653931773201740539}
-  wheel: {fileID: 1179295499920511798}
-  anim: {fileID: 7880975537640475728}
-  detectorCollider: {fileID: 5495109502109003584}
-  targetCollider: {fileID: 5425871753009382080}
-  cannonTiltFireVelocity: 60
-  minCannonTiltVelocity: -15
-  cannonTiltAcceleration: 120
-  whiteSail: {fileID: 2100000, guid: d4f5994df1b02397e8f307aa95b296dc, type: 2}
-  sadSail: {fileID: 2100000, guid: 719dde0972b4d46eeb37e89d5cab5ef9, type: 2}
-  sadFlag: {fileID: 2100000, guid: 872869af6340dd0d99d3b3e0d61e9141, type: 2}
-  greenSail: {fileID: 2100000, guid: 88c7e66c2b4dc03b4b2a0ce79e5df497, type: 2}
-  happySail: {fileID: 2100000, guid: 0dd8a454fc7a3783dbf91d7fed335bd0, type: 2}
-  happyFlag: {fileID: 2100000, guid: cfe787065663b3c4c89ef6f317d8f7fe, type: 2}
-  backSail: {fileID: 5446565059072057094}
-  bigSail: {fileID: 5446565058950635374}
-  topSail: {fileID: 5446565058888431810}
-  flag: {fileID: 5446565057958561840}
-  cashSound: {fileID: 8976042037112647755}
 --- !u!82 &8976042037112647755
 AudioSource:
   m_ObjectHideFlags: 0
@@ -261,6 +223,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &778787004103732693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653931773805103041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77cc306d67d4d5758a8183396b7db68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  speed: 0
+  acceleration: 5
+  maxAngularVelocity: 45
+  angularVelocity: 0
+  angularAcceleration: 20
+  decollideForce: 10
+  shipTilt: {fileID: 6653931773201740539}
+  wheel: {fileID: 1179295499920511798}
+  anim: {fileID: 7880975537640475728}
+  detectorCollider: {fileID: 5495109502109003584}
+  targetCollider: {fileID: 5425871753009382080}
+  cannonTiltFireVelocity: 60
+  minCannonTiltVelocity: -15
+  cannonTiltAcceleration: 120
+  spawnableType: 1
+  whiteSail: {fileID: 2100000, guid: d4f5994df1b02397e8f307aa95b296dc, type: 2}
+  sadSail: {fileID: 2100000, guid: 719dde0972b4d46eeb37e89d5cab5ef9, type: 2}
+  sadFlag: {fileID: 2100000, guid: 872869af6340dd0d99d3b3e0d61e9141, type: 2}
+  greenSail: {fileID: 2100000, guid: 88c7e66c2b4dc03b4b2a0ce79e5df497, type: 2}
+  happySail: {fileID: 2100000, guid: 0dd8a454fc7a3783dbf91d7fed335bd0, type: 2}
+  happyFlag: {fileID: 2100000, guid: cfe787065663b3c4c89ef6f317d8f7fe, type: 2}
+  backSail: {fileID: 5446565059072057094}
+  bigSail: {fileID: 5446565058950635374}
+  topSail: {fileID: 5446565058888431810}
+  flag: {fileID: 5446565057958561840}
+  cashSound: {fileID: 8976042037112647755}
 --- !u!111 &7880975537640475728 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 5826966345099696328, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}

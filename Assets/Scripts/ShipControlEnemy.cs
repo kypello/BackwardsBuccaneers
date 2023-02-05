@@ -30,6 +30,7 @@ public class ShipControlEnemy : ShipControl
         roamTimer = Random.Range(5f, 20f);
         transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
         target = GameObject.FindWithTag("PlayerShip").transform;
+        spawner = GameObject.FindWithTag("Spawner").GetComponent<ShipSpawner>();
     }
 
     protected override void TakeInput() {

@@ -41,7 +41,8 @@ public class ShipControl : MonoBehaviour
     float cannonTiltAngle = 0f;
     float cannonTiltDir = 1;
 
-    public ShipSpawner spawner;
+    protected ShipSpawner spawner;
+    public SpawnableType spawnableType;
 
     public void FireCannonTilt(bool reverse) {
         cannonTiltVelocity = cannonTiltFireVelocity;
@@ -160,12 +161,7 @@ public class ShipControl : MonoBehaviour
 
         anim.Play(new string[]{"Sink1", "Sink2", "Sink3"}[Random.Range(0, 3)]);
 
-        if (this is ShipControlEnemy) {
-            spawner.ReportDeadEnemy();
-        }
-        else if (this is ShipControlMerchant) {
-            spawner.ReportDeadMerchant();
-        }
+        spawner.ReportDead(spawnableType);
 
         animating = true;
         Destroy(gameObject, 4f);

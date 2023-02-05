@@ -50,8 +50,8 @@ public class ShipControlPlayer : ShipControl
     }
 
     protected override void PostMovement() {
-        player.Move(transform.position - prevPosition);
-        
+        player.Move(transform.position - prevPosition + Vector3.down * 0.01f);
+
         if (angularVelocity != 0f) {
             float dist = Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), new Vector3(player.transform.position.x, 0f, player.transform.position.z));
 
