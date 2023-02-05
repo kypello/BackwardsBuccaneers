@@ -17,6 +17,8 @@ public class Cannon : MonoBehaviour, Interactable
     public Transform cannonHorizAxis;
     public Transform cannonVertAxis;
     public GameObject cannonUI;
+    public AudioSource cannonSound;
+    public Collider shipTarget;
 
     public Projectile[] projectilePrefabs;
 
@@ -63,8 +65,10 @@ public class Cannon : MonoBehaviour, Interactable
     }
 
     void Fire(Projectile projectilePrefab) {
+        cannonSound.Play();
         Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, Quaternion.identity);
         projectile.velocity = cannonCamPoint.forward * 60f;
+        projectile.originalShip = shipTarget;
     }
 
     public IEnumerator Interact() {

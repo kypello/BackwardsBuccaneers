@@ -548,6 +548,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!64 &715857575 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 1045246592858415281, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
+  m_PrefabInstance: {fileID: 8669066288170735732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &803253833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1735,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999861252
 MonoBehaviour:
@@ -2198,6 +2203,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 222656408}
     - target: {fileID: 1918951151597275335, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 715857575}
+    - target: {fileID: 1918951151597275335, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 1578386053}
@@ -2238,6 +2247,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 222656408}
     - target: {fileID: 1918951152411862727, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 715857575}
+    - target: {fileID: 1918951152411862727, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 1578386053}
@@ -2278,6 +2291,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 222656408}
     - target: {fileID: 1918951152476652326, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 715857575}
+    - target: {fileID: 1918951152476652326, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
       propertyPath: playerCarry
       value: 
       objectReference: {fileID: 1578386053}
@@ -2317,6 +2334,10 @@ PrefabInstance:
       propertyPath: playerLook
       value: 
       objectReference: {fileID: 222656408}
+    - target: {fileID: 1918951152561046311, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
+      propertyPath: shipTarget
+      value: 
+      objectReference: {fileID: 715857575}
     - target: {fileID: 1918951152561046311, guid: dfc6916d541fe44a3b44f9aa368356b2, type: 3}
       propertyPath: playerCarry
       value: 

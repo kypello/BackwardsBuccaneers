@@ -12,7 +12,7 @@ public class ShipControl : MonoBehaviour
     public float angularAcceleration;
     public float decollideForce;
 
-    List<Collider> collidingShips = new List<Collider>();
+    List<Transform> collidingShips = new List<Transform>();
 
     public Transform shipTilt;
     public Transform wheel;
@@ -24,9 +24,14 @@ public class ShipControl : MonoBehaviour
     float bobNoiseX;
     float bobNoiseY;
     float bobNoiseTime = 0f;
+    public Animation anim;
+    bool animating = false;
 
     protected int movementInput;
     protected int turnInput;
+
+    public Collider detectorCollider;
+    public Collider targetCollider;
 
     void Start() {
         wheelNoiseX = Random.Range(-100000f, 100000f);
@@ -78,7 +83,9 @@ public class ShipControl : MonoBehaviour
             }
         }
 
-        shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+        if (!animating) {
+            shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+        }
 
         wheel.Rotate(Vector3.forward * angularVelocity * 5f * Time.deltaTime);
         
@@ -89,20 +96,40 @@ public class ShipControl : MonoBehaviour
         transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
-        foreach (Collider col in collidingShips) {
-            transform.Translate((transform.position - col.transform.position).normalized * decollideForce * Mathf.Pow(Vector3.Distance(transform.position, col.transform.position) / -28f + 2f, 2f) * Time.deltaTime, Space.World);
+        foreach (Transform ship in collidingShips) {
+            transform.Translate((transform.position - ship.position).normalized * decollideForce * Mathf.Pow(Vector3.Distance(transform.position, ship.position) / -28f + 2f, 2f) * Time.deltaTime, Space.World);
         }
     }
 
-    void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "Ship") {
-            collidingShips.Add(col);
+    public void ShipAlert(Transform ship) {
+        collidingShips.Add(ship);
+    }
+
+    public void ShipLeaveAlert(Transform ship) {
+        collidingShips.Remove(ship);
+    }
+
+    public void ProjectileHit(ProjectileState projectileState) {
+        Debug.Log("Hit by " + projectileState);
+        if (projectileState == ProjectileState.Cannonball) {
+            CannonballHit();
+        }
+        else if (projectileState == ProjectileState.Gold) {
+            GoldHit();
         }
     }
 
-    void OnTriggerExit(Collider col) {
-        if (col.gameObject.tag == "Ship") {
-            collidingShips.Remove(col);
-        }
+    protected virtual void CannonballHit() {
+        detectorCollider.enabled = false;
+        targetCollider.enabled = false;
+
+        anim.Play(new string[]{"Sink1", "Sink2", "Sink3"}[Random.Range(0, 3)]);
+
+        animating = true;
+        Destroy(gameObject, 4f);
+    }
+
+    protected virtual void GoldHit() {
+
     }
 }

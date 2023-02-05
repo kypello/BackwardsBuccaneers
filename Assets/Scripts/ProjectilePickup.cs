@@ -7,10 +7,16 @@ public class ProjectilePickup : MonoBehaviour, Interactable
     public ProjectileState pickupType;
     public PlayerCarry playerCarry;
 
-    public string p;
+    public string[] treasureWords;
+
     public string prompt {
         get {
-            return p;
+            if (pickupType == ProjectileState.Cannonball) {
+                return "[E] Take Cannonball";
+            }
+            else {
+                return "[E] Take " + treasureWords[Random.Range(0, treasureWords.Length)];
+            }
         }
     }
 

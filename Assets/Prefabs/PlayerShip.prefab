@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 0
   playerCarry: {fileID: 0}
-  p: '[E] Take Cannonball'
+  treasureWords: []
 --- !u!1001 &8669066288547128398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -705,6 +705,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4060201337785913903, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
+    - target: {fileID: 4202195516149127178, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+      propertyPath: shipControl
+      value: 
+      objectReference: {fileID: 8164933213319632290}
+    - target: {fileID: 4688792594153164844, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7049489982659941209, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
       propertyPath: m_Name
       value: PlayerShip
@@ -773,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dfd31cea02db038f5a8260c0a1befc84, type: 2}
+    - target: {fileID: 9169329720131724397, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4468506575875776990, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
@@ -835,6 +851,16 @@ MonoBehaviour:
   shipCamParent: {fileID: 0}
   shipCam: {fileID: 0}
   shipControl: {fileID: 8164933213319632290}
+--- !u!135 &688887302568840497 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 8197077446489340888, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+  m_PrefabInstance: {fileID: 8669066289193973481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1045246592858415281 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 8561276813622056536, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+  m_PrefabInstance: {fileID: 8669066289193973481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1303237516127420791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7663070780946954142, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
@@ -886,7 +912,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupType: 1
   playerCarry: {fileID: 0}
-  p: '[E] Take Gold'
+  treasureWords:
+  - Gold
+  - Treasure
+  - Booty
+  - Plunder
+  - Lucre
+  - Riches
+  - Doubloons
+  - Pieces o' Eight
+  - Loot
 --- !u!4 &1844897024922603658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7049489983129232995, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
@@ -918,12 +953,20 @@ MonoBehaviour:
   decollideForce: 0
   shipTilt: {fileID: 1844897024922603658}
   wheel: {fileID: 6165520944917557575}
+  anim: {fileID: 2923749711941381665}
+  detectorCollider: {fileID: 688887302568840497}
+  targetCollider: {fileID: 1045246592858415281}
   control: 0
   player: {fileID: 0}
   shipMode: {fileID: 1534640335}
 --- !u!4 &1844897025391764915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7049489982659941210, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+  m_PrefabInstance: {fileID: 8669066289193973481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2923749711941381665 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 5826966345099696328, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
   m_PrefabInstance: {fileID: 8669066289193973481}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6165520944917557575 stripped
