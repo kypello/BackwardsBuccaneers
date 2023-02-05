@@ -21,6 +21,10 @@ public class ShipControl : MonoBehaviour
     float wheelNoiseY;
     float wheelNoiseTime = 0f;
 
+    float bobNoiseX;
+    float bobNoiseY;
+    float bobNoiseTime = 0f;
+
     public EnterShipMode shipMode;
 
     void Start() {
@@ -64,6 +68,7 @@ public class ShipControl : MonoBehaviour
         }
 
         shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
+
         wheel.Rotate(Vector3.forward * angularVelocity * 5f * Time.deltaTime);
         
         wheelNoiseTime += Time.deltaTime;
