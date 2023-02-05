@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShipControl : MonoBehaviour
 {
-    public bool control;
-
     public float maxSpeed;
     public float speed;
     public float acceleration;
@@ -15,7 +13,6 @@ public class ShipControl : MonoBehaviour
 
     public Transform shipTilt;
     public Transform wheel;
-    public CharacterController player;
 
     float wheelNoiseX;
     float wheelNoiseY;
@@ -25,18 +22,33 @@ public class ShipControl : MonoBehaviour
     float bobNoiseY;
     float bobNoiseTime = 0f;
 
-    public EnterShipMode shipMode;
+    protected int movementInput;
+    protected int turnInput;
 
     void Start() {
         wheelNoiseX = Random.Range(-100000f, 100000f);
         wheelNoiseY = Random.Range(-100000f, 100000f);
     }
 
+    protected virtual void TakeInput() {
+
+    }
+
+    protected virtual void PostMovement() {
+
+    }
+
     void Update() {
-        if (control && Input.GetAxis("Vertical") > 0f) {
+        TakeInput();
+        Movement();
+        PostMovement();
+    }
+
+    void Movement() {
+        if (movementInput == 1) {
             speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
         }
-        else if (control && Input.GetAxis("Vertical") < 0f) {
+        else if (movementInput == -1) {
             speed = Mathf.Max(speed - acceleration * Time.deltaTime, -maxSpeed);
         }
         else {
@@ -48,10 +60,10 @@ public class ShipControl : MonoBehaviour
             }
         }
 
-        if (control && Input.GetAxis("Horizontal") > 0f) {
+        if (turnInput == 1) {
             angularVelocity = Mathf.Min(angularVelocity + angularAcceleration * Time.deltaTime, maxAngularVelocity);
         }
-        else if (control && Input.GetAxis("Horizontal") < 0f) {
+        else if (turnInput == -1) {
             angularVelocity = Mathf.Max(angularVelocity - angularAcceleration * Time.deltaTime, -maxAngularVelocity);
         }
         else {
@@ -61,10 +73,6 @@ public class ShipControl : MonoBehaviour
             else if (angularVelocity < 0f) {
                 angularVelocity = Mathf.Min(angularVelocity + angularAcceleration * Time.deltaTime, 0f);
             }
-        }
-
-        if (control && Input.GetKeyDown(KeyCode.E)) {
-            StartCoroutine(shipMode.ShipToPlayerMode());
         }
 
         shipTilt.localRotation = Quaternion.Euler(Vector3.forward * angularVelocity * -0.2f);
@@ -77,17 +85,5 @@ public class ShipControl : MonoBehaviour
 
         transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
-
-        if (speed != 0f) {
-            player.Move(transform.forward * speed * Time.deltaTime);
-        }
-        if (angularVelocity != 0f) {
-            float dist = Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), new Vector3(player.transform.position.x, 0f, player.transform.position.z));
-
-            Vector3 dirToPlayer = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z).normalized;
-
-            player.Move(Vector3.Cross(Vector3.up, dirToPlayer) * dist * angularVelocity * Mathf.Deg2Rad * Time.deltaTime);
-            player.transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
-        }
     }
 }

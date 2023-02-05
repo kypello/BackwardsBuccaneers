@@ -46,8 +46,6 @@ public class Player : MonoBehaviour
     void Awake() {
         controller = GetComponent<CharacterController>();
         headBobAnim = GetComponentInChildren<Animation>();
-
-        
     }
 
     void Start() {

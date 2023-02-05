@@ -13,7 +13,7 @@ public class EnterShipMode : MonoBehaviour, Interactable
     public Transform shipCamPoint;
     public Transform shipCamParent;
     public ShipCam shipCam;
-    public ShipControl shipControl;
+    public ShipControlPlayer shipControl;
 
     public string prompt {
         get {
