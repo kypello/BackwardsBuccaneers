@@ -246,6 +246,9 @@ MonoBehaviour:
   anim: {fileID: 5826966345099696328}
   detectorCollider: {fileID: 8197077446489340888}
   targetCollider: {fileID: 8561276813622056536}
+  cannonTiltFireVelocity: 60
+  minCannonTiltVelocity: -15
+  cannonTiltAcceleration: 120
 --- !u!1 &7049489982795208243
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7049489983129232995}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -903,10 +910,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 2786534777698132407, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 19289c22c654442efba4824d7c409d5c, type: 2}
+    - target: {fileID: 7339356831882890532, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8416272007918961125, guid: 46edb3ff6cec2040392ab574c91478cf, type: 3}
       propertyPath: m_IsActive
       value: 1

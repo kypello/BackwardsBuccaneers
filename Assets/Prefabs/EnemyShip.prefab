@@ -337,46 +337,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7049489982659941209, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
   m_PrefabInstance: {fileID: 3838109636967975404}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3426224199623790758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6095452406460717749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88da9bc8f4c4d507a827e9ecfb6a9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  speed: 0
-  acceleration: 5
-  maxAngularVelocity: 45
-  angularVelocity: 0
-  angularAcceleration: 20
-  decollideForce: 20
-  shipTilt: {fileID: 6095452405857349519}
-  wheel: {fileID: 1773667393525517890}
-  anim: {fileID: 7322359749820289316}
-  detectorCollider: {fileID: 4936625655113986612}
-  targetCollider: {fileID: 4867396715558330292}
-  cannonTiltFireVelocity: 60
-  minCannonTiltVelocity: -15
-  cannonTiltAcceleration: 120
-  target: {fileID: 0}
-  playerChaseRange: 150
-  playerTargetRange: 75
-  backRightCannon: {fileID: 2463459755620111114}
-  frontRightCannon: {fileID: 5380713530268235289}
-  backLeftCannon: {fileID: 7164091290422772856}
-  frontLeftCannon: {fileID: 492122083189963980}
-  goldPrefab: {fileID: 5460553475573818360, guid: aa415f61188cd0e6e843358a0b6a1a02, type: 3}
-  backRightParticles: {fileID: 650700082721028737}
-  frontRightParticles: {fileID: 6975029746477418241}
-  backLeftParticles: {fileID: 8390196236519785186}
-  frontLeftParticles: {fileID: 3092617210696891443}
-  cannonSound: {fileID: 8084787087507857680}
 --- !u!82 &8084787087507857680
 AudioSource:
   m_ObjectHideFlags: 0
@@ -473,6 +433,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3426224199623790758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095452406460717749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88da9bc8f4c4d507a827e9ecfb6a9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  speed: 0
+  acceleration: 5
+  maxAngularVelocity: 45
+  angularVelocity: 0
+  angularAcceleration: 20
+  decollideForce: 20
+  shipTilt: {fileID: 6095452405857349519}
+  wheel: {fileID: 1773667393525517890}
+  anim: {fileID: 7322359749820289316}
+  detectorCollider: {fileID: 4936625655113986612}
+  targetCollider: {fileID: 4867396715558330292}
+  cannonTiltFireVelocity: 60
+  minCannonTiltVelocity: -15
+  cannonTiltAcceleration: 120
+  target: {fileID: 0}
+  playerChaseRange: 125
+  playerTargetRange: 75
+  backRightCannon: {fileID: 2463459755620111114}
+  frontRightCannon: {fileID: 5380713530268235289}
+  backLeftCannon: {fileID: 7164091290422772856}
+  frontLeftCannon: {fileID: 492122083189963980}
+  goldPrefab: {fileID: 5460553475573818360, guid: aa415f61188cd0e6e843358a0b6a1a02, type: 3}
+  backRightParticles: {fileID: 650700082721028737}
+  frontRightParticles: {fileID: 6975029746477418241}
+  backLeftParticles: {fileID: 8390196236519785186}
+  frontLeftParticles: {fileID: 3092617210696891443}
+  cannonSound: {fileID: 8084787087507857680}
+  collider: {fileID: 4867396715558330292}
 --- !u!111 &7322359749820289316 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 5826966345099696328, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}

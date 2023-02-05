@@ -41,6 +41,8 @@ public class ShipControl : MonoBehaviour
     float cannonTiltAngle = 0f;
     float cannonTiltDir = 1;
 
+    public ShipSpawner spawner;
+
     public void FireCannonTilt(bool reverse) {
         cannonTiltVelocity = cannonTiltFireVelocity;
         cannonFiring = true;
@@ -125,8 +127,13 @@ public class ShipControl : MonoBehaviour
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
         foreach (Transform ship in collidingShips) {
+            if (ship == null) {
+                continue;
+            }
             transform.Translate((transform.position - ship.position).normalized * decollideForce * Mathf.Pow(Vector3.Distance(transform.position, ship.position) / -28f + 2f, 2f) * Time.deltaTime, Space.World);
         }
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -360f, 360f), 5f, Mathf.Clamp(transform.position.z, -360f, 360f));
     }
 
     public void ShipAlert(Transform ship) {
@@ -137,13 +144,13 @@ public class ShipControl : MonoBehaviour
         collidingShips.Remove(ship);
     }
 
-    public void ProjectileHit(ProjectileState projectileState) {
+    public void ProjectileHit(ProjectileState projectileState, Collider originalShip) {
         Debug.Log("Hit by " + projectileState);
         if (projectileState == ProjectileState.Cannonball) {
             CannonballHit();
         }
         else if (projectileState == ProjectileState.Gold) {
-            GoldHit();
+            GoldHit(originalShip);
         }
     }
 
@@ -153,11 +160,18 @@ public class ShipControl : MonoBehaviour
 
         anim.Play(new string[]{"Sink1", "Sink2", "Sink3"}[Random.Range(0, 3)]);
 
+        if (this is ShipControlEnemy) {
+            spawner.ReportDeadEnemy();
+        }
+        else if (this is ShipControlMerchant) {
+            spawner.ReportDeadMerchant();
+        }
+
         animating = true;
         Destroy(gameObject, 4f);
     }
 
-    protected virtual void GoldHit() {
+    protected virtual void GoldHit(Collider originalShip) {
 
     }
 }

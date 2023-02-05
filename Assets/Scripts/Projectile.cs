@@ -11,23 +11,36 @@ public class Projectile : MonoBehaviour
     public GameObject hitParticles;
     public GameObject splashParticles;
     public Collider originalShip;
+    bool destroying = false;
+    public ParticleSystem trailParticles;
+    public Renderer rend;
+    public FloatingChest floatingChestPrefab;
 
     void Update() {
         velocity += -velocity.normalized * airResistance * Time.deltaTime;
         velocity += Vector3.up * gravity * Time.deltaTime;
         transform.Translate(velocity * Time.deltaTime, Space.World);
 
-        if (transform.position.y < 0) {
+        if (transform.position.y < 0 && !destroying) {
+            destroying = true;
             Instantiate(splashParticles, Vector3.right * transform.position.x + Vector3.forward * transform.position.z, Quaternion.identity);
-            Destroy(gameObject);
+            if (projectileState == ProjectileState.Gold) {
+                Instantiate(floatingChestPrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject, 4f);
         }
     }
 
     void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "ShipTarget" && col != originalShip) {
-            col.GetComponent<ShipTarget>().shipControl.ProjectileHit(projectileState);
+        if (col.gameObject.tag == "ShipTarget" && col != originalShip && !destroying) {
+            destroying = true;
+            rend.enabled = false;
+            if (trailParticles != null) {
+                trailParticles.Stop();
+            }
+            col.GetComponent<ShipTarget>().shipControl.ProjectileHit(projectileState, originalShip);
             Instantiate(hitParticles, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(gameObject, 4f);
         }
     }
 }

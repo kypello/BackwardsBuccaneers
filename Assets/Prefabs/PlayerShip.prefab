@@ -761,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7049489982659941209, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+      propertyPath: m_TagString
+      value: PlayerShip
+      objectReference: {fileID: 0}
     - target: {fileID: 7049489982659941210, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -896,6 +900,11 @@ SphereCollider:
   m_CorrespondingSourceObject: {fileID: 8197077446489340888, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
   m_PrefabInstance: {fileID: 8669066289193973481}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1034686279664331329 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8508782299568184488, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
+  m_PrefabInstance: {fileID: 8669066289193973481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1045246592858415281 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 8561276813622056536, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}
@@ -1002,6 +1011,8 @@ MonoBehaviour:
   control: 0
   player: {fileID: 0}
   shipMode: {fileID: 1534640335}
+  flag: {fileID: 1034686279664331329}
+  goldFlag: {fileID: 2100000, guid: a17608086d881ed009dbdd5f89e56ede, type: 2}
 --- !u!4 &1844897025391764915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7049489982659941210, guid: 9a770e7f5807d28bea0d007a0b8622f5, type: 3}

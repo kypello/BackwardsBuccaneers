@@ -18,10 +18,16 @@ public class ShipControlMerchant : ShipControl
     public Renderer topSail;
     public Renderer flag;
 
+    ShipControl playerShip;
+    public AudioSource cashSound;
+    Score score;
+
     bool satisfied = false;
     float satisfactionTimer = 0f;
 
     void Awake() {
+        playerShip = GameObject.FindWithTag("PlayerShip").GetComponent<ShipControl>();
+        score = GameObject.FindWithTag("Score").GetComponent<Score>();
         movementTimer = Random.Range(5f, 20f);
         transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
         SetSadFlag();
@@ -66,12 +72,18 @@ public class ShipControlMerchant : ShipControl
         flag.sharedMaterial = happyFlag;
     }
 
-    protected override void GoldHit() {
+    protected override void GoldHit(Collider originalShip) {
         if (!satisfied) {
+            cashSound.Play();
             anim.Play("ShipJiggle");
             SetHappyFlag();
+            score.ChangeScore(1);
             satisfied = true;
-            satisfactionTimer = Random.Range(15f, 45f);
+            satisfactionTimer = Random.Range(30f, 120f);
+
+            if (originalShip.GetComponent<ShipTarget>().shipControl != playerShip) {
+                (playerShip as ShipControlPlayer).UnlockGoldFlag();
+            }
         }
     }
 }

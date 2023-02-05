@@ -55,6 +55,9 @@ MonoBehaviour:
   hitParticles: {fileID: 4768651038898481130, guid: 52af6f2899a6d72fcbbd3d263cc409dd, type: 3}
   splashParticles: {fileID: 4768651038898481130, guid: f61449c4234b50934bb97912b2c91568, type: 3}
   originalShip: {fileID: 0}
+  trailParticles: {fileID: 5004439530355633665}
+  rend: {fileID: 1820555118352913556}
+  floatingChestPrefab: {fileID: 7487943904069406130, guid: 1d59f844560746551a64ac3378e7acdf, type: 3}
 --- !u!135 &6874467315173048655
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4972,5 +4975,10 @@ PrefabInstance:
 --- !u!4 &650987714961616891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
+  m_PrefabInstance: {fileID: 1045535080775370768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1820555118352913556 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
   m_PrefabInstance: {fileID: 1045535080775370768}
   m_PrefabAsset: {fileID: 0}

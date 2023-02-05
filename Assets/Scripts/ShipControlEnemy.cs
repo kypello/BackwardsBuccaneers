@@ -24,10 +24,12 @@ public class ShipControlEnemy : ShipControl
     public ParticleSystem frontLeftParticles;
 
     public AudioSource cannonSound;
+    public Collider collider;
     
     void Awake() {
         roamTimer = Random.Range(5f, 20f);
         transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
+        target = GameObject.FindWithTag("PlayerShip").transform;
     }
 
     protected override void TakeInput() {
@@ -114,7 +116,7 @@ public class ShipControlEnemy : ShipControl
 
         cannonSound.Play();
 
-        Projectile projectile;
+        Projectile projectile = null;
         if (back && right) {
             backRightParticles.Play();
             projectile = Instantiate(goldPrefab, backRightCannon.position, Quaternion.identity);
@@ -135,6 +137,7 @@ public class ShipControlEnemy : ShipControl
             projectile = Instantiate(goldPrefab, frontLeftCannon.position, Quaternion.identity);
             projectile.velocity = frontLeftCannon.forward * 60f;
         }
+        projectile.originalShip = collider;
 
         FireCannonTilt(!right);
 

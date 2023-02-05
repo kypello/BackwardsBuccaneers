@@ -7,9 +7,18 @@ public class ShipControlPlayer : ShipControl
     public bool control;
     public CharacterController player;
     public EnterShipMode shipMode;
+    public Renderer flag;
+    public Material goldFlag;
+    public Score score;
+
+    Vector3 prevPosition;
 
     void Awake() {
         //Physics.IgnoreCollision(player, GetComponent<Collider>());
+    }
+
+    public void UnlockGoldFlag() {
+        flag.sharedMaterial = goldFlag;
     }
 
     protected override void TakeInput() {
@@ -36,12 +45,13 @@ public class ShipControlPlayer : ShipControl
         if (control && Input.GetKeyDown(KeyCode.E)) {
             StartCoroutine(shipMode.ShipToPlayerMode());
         }
+
+        prevPosition = transform.position;
     }
 
     protected override void PostMovement() {
-        if (speed != 0f) {
-            player.Move(transform.forward * speed * Time.deltaTime);
-        }
+        player.Move(transform.position - prevPosition);
+        
         if (angularVelocity != 0f) {
             float dist = Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), new Vector3(player.transform.position.x, 0f, player.transform.position.z));
 
@@ -50,5 +60,9 @@ public class ShipControlPlayer : ShipControl
             player.Move(Vector3.Cross(Vector3.up, dirToPlayer) * dist * angularVelocity * Mathf.Deg2Rad * Time.deltaTime);
             player.transform.Rotate(Vector3.up * angularVelocity * Time.deltaTime);
         }
+    }
+
+    protected override void GoldHit(Collider originalShip) {
+        score.ChangeScore(-1);
     }
 }

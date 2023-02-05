@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ship
   - ShipTarget
+  - PlayerShip
+  - Score
   layers:
   - Default
   - TransparentFX

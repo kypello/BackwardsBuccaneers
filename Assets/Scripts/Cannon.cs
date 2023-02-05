@@ -70,7 +70,7 @@ public class Cannon : MonoBehaviour, Interactable
         shipControl.FireCannonTilt(reverseShipTilt);
         cannonSound.Play();
         Projectile projectile = Instantiate(projectilePrefab, cannonCamPoint.position, Quaternion.identity);
-        projectile.velocity = cannonCamPoint.forward * 60f;
+        projectile.velocity = cannonCamPoint.forward * 70f;
         projectile.originalShip = shipTarget;
     }
 
