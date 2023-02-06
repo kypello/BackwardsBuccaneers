@@ -19,6 +19,20 @@ public class PlayerLook : MonoBehaviour
     public float xClamp = 90f;
     public float yClamp = 60f;
 
+    void Start() {
+        #if UNITY_EDITOR
+            sensitivity = 500f;
+        #endif
+
+        #if UNITY_WEBGL
+            sensitivity = 40f;
+        #endif
+
+        #if UNITY_STANDALONE
+            sensitivity = 300f;
+        #endif
+    }
+
     void Update()
     {
         if (control) {
