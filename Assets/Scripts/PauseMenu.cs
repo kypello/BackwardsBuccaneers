@@ -43,9 +43,17 @@ public class PauseMenu : MonoBehaviour, IScrollable
     public TMP_Text sensitivityText;
     public Scrollbar sensitivityScrollbar;
 
+    public TMP_Text pauseInstruction;
+
+    void Start() {
+        #if UNITY_WEBGL
+            pauseInstruction.text = "[P] Pause";
+        #endif
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
             paused = !paused;
 
             if (paused) {
@@ -82,6 +90,7 @@ public class PauseMenu : MonoBehaviour, IScrollable
         PlayerLook.sensitivity = 1000 - sensitivityScrollbar.GetValue() * 10;
         shipCam.sensitivity = PlayerLook.sensitivity;
         resumeButton.SetDefaultState();
+        quitButton.SetDefaultState();
         paused = false;
         pauseUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
