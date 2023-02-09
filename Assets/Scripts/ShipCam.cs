@@ -16,7 +16,9 @@ public class ShipCam : MonoBehaviour
 
     public bool control;
 
-    void Awake() {
+    void Start() {
+        sensitivity = PlayerLook.sensitivity;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -36,10 +38,10 @@ public class ShipCam : MonoBehaviour
     
     public void UpdateDirection()
     {
-        verticalRotation = Mathf.Clamp(verticalRotation + Input.GetAxis("VerticalCam") * sensitivity * (invertY ? -1 : 1), 0f, 85f);
+        verticalRotation = Mathf.Clamp(verticalRotation + Input.GetAxis("VerticalCam") * sensitivity * (invertY ? -1 : 1) * Time.deltaTime, 0f, 85f);
         verticalAxis.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
 
-        horizontalAxis.Rotate(Vector3.up * Input.GetAxis("HorizontalCam") * sensitivity * (invertX ? -1 : 1), Space.World);
+        horizontalAxis.Rotate(Vector3.up * Input.GetAxis("HorizontalCam") * sensitivity * (invertX ? -1 : 1) * Time.deltaTime, Space.World);
     }
 
     public void UpdatePosition() {

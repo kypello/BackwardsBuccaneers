@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water 1
+  m_Name: DarkWater
   m_Shader: {fileID: 4800000, guid: fc0b5a9a353c9a85fa07e46dc7e925b4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -68,7 +68,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 2

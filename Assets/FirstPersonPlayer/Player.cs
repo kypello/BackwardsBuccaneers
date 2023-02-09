@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     float vz;
     public float moveForce = 10f;
 
-    bool wasGroundedLastFrame;
+    public bool wasGroundedLastFrame;
 
     public bool control = true;
 
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         }
 
         if (controller.isGrounded && vy <= 0f) {
-            vy = -10f;
+            vy = -1f;
         }
         else {
             vy += gravity * Time.deltaTime;

@@ -6,7 +6,7 @@ public class PlayerLook : MonoBehaviour
 {
     public Transform horizontalAxis;
     public Transform verticalAxis;
-    public float sensitivity = 500f;
+    public static float sensitivity = 500f;
     float xRotation = 0f;
 
     public bool control = true;
@@ -19,7 +19,7 @@ public class PlayerLook : MonoBehaviour
     public float xClamp = 90f;
     public float yClamp = 60f;
 
-    void Start() {
+    void Awake() {
         #if UNITY_EDITOR
             sensitivity = 500f;
         #endif
@@ -36,8 +36,6 @@ public class PlayerLook : MonoBehaviour
     void Update()
     {
         if (control) {
-            Cursor.lockState = CursorLockMode.Locked;
-
             if (mouseMovedSinceUnlocking) {
                 xRotation -= Input.GetAxis("VerticalCam") * sensitivity * Time.deltaTime;
                 xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);

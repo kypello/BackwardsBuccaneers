@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool mouseOver;
+    public bool mouseOverLastFrame;
 
     public void OnPointerEnter(PointerEventData eventData) {
         mouseOver = true;
@@ -13,5 +14,9 @@ public class MouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerExit(PointerEventData eventData) {
         mouseOver = false;
+    }
+
+    void LateUpdate() {
+        mouseOverLastFrame = mouseOver;
     }
 }

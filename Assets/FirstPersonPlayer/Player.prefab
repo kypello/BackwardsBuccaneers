@@ -306,6 +306,7 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 64
+  currentlyLookingAt: {fileID: 0}
 --- !u!111 &252580077502164738
 Animation:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0363c1bde3b5463ab886a1b9c71587b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 10
+  sensitivity: 300
   invertX: 0
   invertY: 1
   target: {fileID: 0}
@@ -1358,8 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carrying: 0
-  cannonballHold: {fileID: 919132147529135150}
-  goldHold: {fileID: 919132149156511358}
+  itemHolds: []
   pickupAnim: {fileID: 1041884033}
 --- !u!1 &252580079529933802
 GameObject:
@@ -2165,11 +2165,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f352532ca26638a39936a0e42b9c2393, type: 3}
   m_PrefabInstance: {fileID: 1065775}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &919132149156511358 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f352532ca26638a39936a0e42b9c2393, type: 3}
-  m_PrefabInstance: {fileID: 1065775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1729137023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2250,10 +2245,5 @@ PrefabInstance:
 --- !u!4 &543450652004445844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
-  m_PrefabInstance: {fileID: 1729137023}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &919132147529135150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3bbed9f9fecd8be4a1c38a1ff222abf, type: 3}
   m_PrefabInstance: {fileID: 1729137023}
   m_PrefabAsset: {fileID: 0}

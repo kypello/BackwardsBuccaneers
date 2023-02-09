@@ -10,10 +10,9 @@ public class TitleScreen : MonoBehaviour
     public static int previousScore = 0;
     public static int bestScore = 0;
 
-    public MouseOver playButton;
-    public TMP_Text playButtonText;
-    public Color defaultColor;
-    public Color highlightColor;
+    public Button playButton;
+    public Button quitButton;
+    
     public TMP_Text scoreText;
     public Animation whiteOut;
     bool loadingScene = false;
@@ -21,7 +20,7 @@ public class TitleScreen : MonoBehaviour
     void Awake() {
         if (playedAlready) {
             scoreText.text = "Score: " + previousScore + "\n<size=48>Best: " + bestScore;
-            playButtonText.text = "Play Again";
+            playButton.text.text = "Play Again";
         }
         else {
             scoreText.text = "";
@@ -32,14 +31,12 @@ public class TitleScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if (playButton.mouseOver || loadingScene) {
-            playButtonText.color = highlightColor;
-            if (Input.GetMouseButtonDown(0) && !loadingScene) {
-                StartCoroutine(StartGame());
-            }
+        if (playButton.Check() && !loadingScene) {
+            StartCoroutine(StartGame());
         }
-        else {
-            playButtonText.color = defaultColor;
+
+        if (quitButton.Check()) {
+            Application.Quit();
         }
     }
 
